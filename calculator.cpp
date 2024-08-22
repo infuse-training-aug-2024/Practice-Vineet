@@ -22,6 +22,10 @@ public:
     double multiply(double a, double b) {
         return a * b;
     }
+
+    double multiply2(double a, double b, double c){
+        return a*b*c;
+    }
     
     // Method to perform division
     double divide(double a, double b) {
