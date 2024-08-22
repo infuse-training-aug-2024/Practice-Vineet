@@ -13,6 +13,10 @@ public:
     double subtract(double a, double b) {
         return a - b;
     }
+
+    double subtract2(double a, double b, double c){
+        return a-b-c;
+    }
     
     // Method to perform multiplication
     double multiply(double a, double b) {
