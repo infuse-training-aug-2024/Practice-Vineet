@@ -1,0 +1,135 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #0a0500;
+    height: 100%;
+}
+ 
+input{
+    padding: 10px;
+    margin: 10px;
+    width: 30%;
+    border-radius: 20px;
+    border: 1px solid #000;
+}
+ 
+form>button{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: rgb(72, 205, 72);
+    color: white;
+}
+form>button:hover{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: rgb(42, 133, 42);
+    color: white;
+}
+ 
+button {
+    cursor: pointer;
+}
+ 
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 70% auto;
+}
+ 
+iframe{
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+ 
+.movie-list-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.search-area{
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+}
+ 
+.card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(72, 205, 72);
+   
+    border-radius: 8px;
+    overflow: hidden;
+}
+.card-content {
+    flex-grow: 1;
+    padding: 10px;
+}
+.card:hover{
+    transform: scale(1.02);
+}
+.card h3{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+.card p{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+.card button{
+    display: block;
+    width: 40%;
+    padding: 10px;
+    background-color: #f3a553;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 10px auto;
+}
+ 
+.card img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+ 
+.results{
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 0.4fr));
+    gap: 20px;
+    margin: 10px auto;
+    place-content: center;
+}
+ 
+#load-more{
+    display: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: rgba(194, 17, 17, 0.736);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+ 
+.movie-list-section input{
+    padding: 10px;
+    margin: 10px;
+    width: auto;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+ 
+#secondForm{
+    display:none;
+}
