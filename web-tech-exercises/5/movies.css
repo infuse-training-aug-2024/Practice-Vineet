@@ -1,0 +1,35 @@
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+}
+.disco{
+    color: rgb(84, 226, 145);
+}
+h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-bar{
+    margin: 0px 20px;
+    padding: 0px 10px;
+    border-radius: 10px;
+}
+.search-button{
+    padding: 10px 10px;
+    background: rgb(84, 226, 145);
+    border-radius: 10px;
+    border: none;
+    
+}
+.search-button:hover{
+    background-color: rgb(25, 175, 90);
+    cursor: pointer;
+    font-weight: 100;
+    color: whi;
+}

@@ -1,0 +1,16 @@
+#### OMDB Movies
+
+##### The exercise is broken down as below
+
+- Fetch Movies using https://www.omdbapi.com/ (then, catch or async, await).
+- Design a card for a movie – title, year, rated, release date, run time, poster, genre, director, actors, plot.
+- Display the movie cards in responsive format.
+- Sort by year
+- Create a side panel (Iframe), a button on each card to view more.
+- On click, display information in the iframe - all info, display all ratings, languages, full plot.
+- Search within displayed movies.
+- Load more – (Infinite scroll, or next page button).
+
+##### Note
+- Use arrow functions wherever possible.
+- Use array methods instead of traditional loops.
