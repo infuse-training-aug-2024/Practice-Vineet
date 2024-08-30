@@ -36,7 +36,7 @@ const sortMoviesByYear = (movies, order) => {
     if (order === 'asc') {
         return movies.sort((a, b) => parseInt(a.Year) - parseInt(b.Year));
     }
-    else if (order === 'desc') {
+    else {
         return movies.sort((a, b) => parseInt(b.Year) - parseInt(a.Year));
     }
 };
@@ -86,11 +86,6 @@ function displayMovieDetails(imdbID){
     const iframe=document.getElementById('movie-info');
     iframe.src=`movie-details.html?imdbID=${imdbID}&apikey=${apiKey}`;
 }
- 
-// Example usage
-// fetchMovies('Batman').then(movies => {
-//     console.log(movies); // Handle the movies data
-// });
  
 const form=document.querySelector('form');
 const result=document.querySelector('.results');
