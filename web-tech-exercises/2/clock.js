@@ -1,4 +1,4 @@
-function updateClock() {
+function clock_time() {
     const clock = document.getElementById('clock');
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
@@ -17,6 +17,6 @@ function updateClock() {
       button.textContent = 'Dark Mode';
     }
   }
-  setInterval(updateClock, 1000);  
-  updateClock();
+  setInterval(clock_time, 1000);  
+  clock_time();
   document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
