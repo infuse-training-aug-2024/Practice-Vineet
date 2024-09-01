@@ -1,4 +1,4 @@
-class Sports:
+class SportsClass:
     def __init__(self, sports_arr, skip_num):
         self.sports_arr = sports_arr
         self.skip_num = skip_num
@@ -11,5 +11,5 @@ class Sports:
         return result
     
 
-sp = Sports(["Cricket", "TT", "Football", "Hockey"], 2)
+sp = SportsClass(["Cricket", "TT", "Football", "Hockey"], 2)
 print(sp.skip_sports())

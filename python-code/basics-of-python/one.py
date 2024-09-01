@@ -1,29 +1,23 @@
 import re
+
 class SerialAverage:
-    def __init__(self, s):
-        self.s = s
+    def __init__(self, input_string):
+        self.input_string = input_string
     
     def check_input_string(self):
-        pattern = r"^\d{3}-\d{2}\.\d{2}-\d{2}\.\d{2}$"
-        ss = self.s
-        if re.match(pattern,ss):
-            return True
-        
-        return False
-        
+        # Adjust pattern to handle optional negative signs and ensure proper format
+        pattern = r"^\d{3}-\-?\d{2}\.\d{2}-\-?\d{2}\.\d{2}$"
+        return bool(re.match(pattern, self.input_string))
         
     def serial_average(self):
         if self.check_input_string():
-            serial_number_sss = self.s[0:3]
+            serial_number_sss = self.input_string[0:3]
+            xx_xx = float(self.input_string[4:9])
+            yy_yy = float(self.input_string[10:])
             
-            xx_xx = float(self.s[4:9])
-            yy_yy = float(self.s[10:])
-
-            zz_zz = round((xx_xx+yy_yy)/2, 2)
-            return f"{serial_number_sss}-{zz_zz:.2f}"
+            zz_zz = round((xx_xx + yy_yy) / 2, 2)
+            
+            return f"{serial_number_sss}-{zz_zz:.2f}".replace('--', '-')
         else:
-            print("Please, check the input string")
+            return "Invalid input string"
 
-
-sa = SerialAverage('002-10.00-20.00')
-print(sa.serial_average())

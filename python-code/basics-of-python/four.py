@@ -1,8 +1,8 @@
 import re
 
 class ValidatePassword:
-    def __init__(self, password_arr):
-        self.password_arr = password_arr
+    def __init__(self, passwords):
+        self.password_arr = passwords
         
     def validate(self, password):
         pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$#@]).{6,12}$"
