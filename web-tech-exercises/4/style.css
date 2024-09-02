@@ -1,0 +1,315 @@
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+  background-color: #f5f5f5;
+}
+
+
+aside {
+  border-right: 1px solid rgb(205, 205, 205);
+  background-color: #ffffff;
+}
+
+
+.um-logo {
+  height: 100px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  background-color: #ffffff;
+  width: 100%;
+}
+
+
+.um-user {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  display: flex;
+  align-items: center;
+}
+
+
+.um-user img {
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+
+.um-user-name {
+  color: #007acc;
+  display: block;
+}
+
+
+.um-user-email {
+  font-size: x-small;
+  color: #3b3b3c;
+}
+
+.nav-menu {
+  padding: 24px;
+  list-style: none;
+}
+
+
+.nav-menu li {
+  margin-bottom: 16px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #007acc;
+  font-size: 14px;
+}
+
+.um-navitems__main {
+  list-style-type: none;
+  padding: 0%;
+}
+
+.um-navitems__main li {
+  padding: 10px;
+  color: #007acc;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.um-navitems__main li i {
+  font-size: 24px;
+  padding: 15px;
+}
+
+
+.um-navitems__secondary {
+  list-style-type: none;
+  padding: 0%;
+}
+
+.um-navitems__secondary li {
+  padding: 10px;
+  color: #007acc;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.um-navitems__secondary li i {
+  font-size: 24px;
+  padding: 15px;
+}
+
+
+.test-data > span:first-of-type {
+  background-color: black;
+  color: white;
+  padding: 3px;
+}
+
+
+.test-data > span,
+.test-data > i {
+  background-color: #084f7e;
+  color: white;
+  padding: 3px;
+}
+
+
+.test-data > i:last-of-type {
+  margin-left: auto;
+}
+
+
+.um-test-name {
+  color: white;
+  background-color: #084f7e;
+  padding: 3px;
+}
+
+
+.test-properties {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.test-properties > span:first-of-type {
+  background-color: #007acc;
+  color: white;
+  padding: 2px;
+}
+
+
+.form-properties {
+  display: flex;
+  flex: 1;
+}
+
+
+.details, .description {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+/* .description {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+} */
+
+
+.details label {
+  padding: 10px;
+  color: #007acc;
+  font-weight: bold;
+}
+
+
+.details select {
+  margin: 6px;
+  border: none;
+}
+
+
+textarea {
+  width: 100%;
+}
+
+
+.test-main {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.main-content {
+  padding: 24px;
+  background-color: #ffffff;
+}
+
+
+.test-designer {
+  display: block;
+  background-color: #f5f5f5;
+  height: 55vh;
+  width: 100%;
+}
+
+.test-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background-color: #007acc;
+  color: #ffffff;
+}
+
+
+.test-flowchart {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  flex-grow: 5;
+  height: 100%;
+  border-right: 1px solid #007acc;
+}
+
+
+.test-flowchart > span:first-of-type {
+  background-color: #007acc;
+  color: white;
+  padding: 2px;
+}
+
+.options {
+  padding: 3px;
+  font-size: 20px;
+  background-color: white;
+}
+
+
+.options i {
+  margin-right: 15px;
+  color: #89898a;
+}
+
+
+.test-data1 {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.test-variables {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  flex: auto;
+  border-left: 1px solid #007acc;
+}
+
+
+.test-variables > span {
+  background-color: #007acc;
+  color: white;
+  padding: 2px;
+}
+
+.test-variables > i {
+  color: #007acc;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+
+.table-header {
+  color: #007acc;
+  font-weight: bold;
+}
+
+
+.table-header > span {
+  margin-right: 50px;
+  margin-left: 25px;
+}
+
+.table-header > span:last-of-type {
+  margin-right: 0;
+}
+
+
+.test-parameters {
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  flex: auto;
+  border-left: 1px solid #007acc;
+}
+
+
+.test-parameters > span {
+  background-color: #007acc;
+  color: white;
+  padding: 2px;
+}
+
+.test-parameters > i {
+  color: #007acc;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: auto;
+}

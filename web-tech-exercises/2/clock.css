@@ -1,0 +1,39 @@
+body {
+    font-family: 'Impact';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+    
+  }
+ 
+  .container {
+    text-align: center;
+  }
+ 
+  .clock {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+ 
+  button {
+    margin-top: 200px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3fdc7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+ 
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+ 
+  .dark-mode button {
+    background-color: #ec3131;
+    color: white;
+  }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="movie-details.css">
+        <script>
+            document.addEventListener('DOMContentLoaded',()=>{
+                function getQueryParameter(name){
+                    const urlParameter=new URLSearchParams(window.location.search);
+                    return urlParameter.get(name);
+                }
+                const imdbID=getQueryParameter('imdbID');
+                const apikey=getQueryParameter('apikey');
+                if(imdbID){
+                    fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${apikey}`)
+                    .then(response=>response.json())
+                    .then(data=>{
+                        if(data.Response==="True"){
+                            displayMovieDetails(data);
+                        }
+                        else{
+                            console.error(data.Error);
+                        }
+                    })
+                    .catch(error=>console.error(error));
+                }
+            });
+            function displayMovieDetails(movie){
+                document.getElementById('movie-details').innerHTML=`
+                <h1>Movie Details</h1>
+                <div class="movie-data">
+                    <img id="poster" src="${movie.Poster}" alt="Movie Poster">
+                    <h2 id="title">${movie.Title}</h2>
+                    <h3>Year</h3>
+                    <p id="year">${movie.Year}</p>
+                    <h3>Rated</h3>
+                    <p id="rated">${movie.Rated}</p>
+                    <h3>Released</h3>
+                    <p id="released">${movie.Released}</p>
+                    <h3>Runtime</h3>
+                    <p id="runtime">${movie.Runtime}</p>
+                    <h3>Genre</h3>
+                    <p id="genre">${movie.Genre}</p>
+                    <h3>Director</h3>
+                    <p id="director">${movie.Director}</p>
+                    <h3>Writer</h3>
+                    <p id="writer">${movie.Writer}</p>
+                    <h3>Actors</h3>
+                    <p id="actors">${movie.Actors}</p>
+                    <h3>Plot</h3>
+                    <p id="plot">${movie.Plot}</p>
+                    <h3>Languages</h3>
+                    <p id="languages">${movie.Language}</p>
+                    <h3>Ratings</h3>
+                    <p id="ratings">${movie.Ratings.map(rating => `${rating.Source}: ${rating.Value}`).join(', ')}</p>
+            </div>`;
+            }
+        </script>
+    </head>
+    <body>
+       
+        <div id="movie-details">
+        </div>
+    </body>
+</html>

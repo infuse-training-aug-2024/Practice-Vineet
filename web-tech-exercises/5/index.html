@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style-movies.css">
+    </head>
+    <body>
+        <div class="search-area">
+            <h1 class="heading-style"><span class="span-style">M</span>ovieBaazz<span class="span-style"> . . .  </span></h1>
+            <form action="">
+                <input type="text" name="search" id="search" placeholder="Search for a movie...">
+                <button type="submit">Search</button>
+            </form>
+            <div class="sort">
+                <label style="color: white" for="sort">Sort by Year:</label>
+                <select name="sort" id="sort">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div class="movie-list-section">
+                <form action="" id="secondForm">
+                    <input type="text" name="search" id="search" placeholder="Search within...">
+                    <button type="submit">Search</button>
+                </form>
+                <div class="results"></div>
+                <button type="load-more" id="load-more">Load More</button>
+            </div>
+            <aside id="side-panel">
+                <iframe id="movie-info" src=""></iframe>
+            </aside>
+        </div>
+        <script src="movies.js" async defer></script>
+    </body>
+</html>
