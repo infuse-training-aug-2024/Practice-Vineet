@@ -91,3 +91,7 @@ class Game:
                     print("You lost! The secret word was ", self.generated_word)
                     self.save_user_info()
                     sys.exit()
+
+
+game = Game()
+game.start_game()
