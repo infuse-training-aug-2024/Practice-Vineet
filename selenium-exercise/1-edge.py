@@ -1,11 +1,12 @@
-from selenium.webdriver import Edge
-from selenium.webdriver.edge.service import Service as EdgeService
-from time import sleep
+from DriversClass import DriverClass 
+from selenium.common.exceptions import WebDriverException
 
-driver_path = r'C:\Users\sawan\Desktop\infuse\Practice-Vineet\selenium-exercise\drivers\edgedriver_win64\msedgedriver.exe'
-edge_service = EdgeService(executable_path=driver_path)
-driver = Edge(service=edge_service)
+try: 
+    driver = DriverClass("Edge").initialize_driver()
+    driver.maximize_window()
+    print("Executed Successfully!")
+except WebDriverException as e:
+    print(f"Error occurred: {e}")
+finally:
+    driver.quit()
 
-driver.maximize_window()
-sleep(2)
-driver.quit()

@@ -1,21 +1,14 @@
-from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.common.exceptions import WebDriverException
-
-from time import sleep
-
-driver_path = r'C:\Users\sawan\Desktop\infuse\Practice-Vineet\selenium-exercise\drivers\chromedriver-win64\chromedriver.exe'
-
+from DriversClass import DriverClass
 
 try:
-    chrome_service = ChromeService(executable_path=driver_path)
-    driver = Chrome(service=chrome_service)
-    
+    driver = DriverClass("Chrome").initialize_driver()
     driver.get('https:///www.yahoo.com/')
     driver.maximize_window()
     test_button = driver.find_element(By.ID,value="login-container")
     test_button.click()
+    print("Executed Successfully!")
 except WebDriverException as e:
     print(f"Error occurred: {e}")
 finally:

@@ -1,13 +1,12 @@
-from selenium.webdriver import Chrome
-from selenium.webdriver.common.by import By
-from time import sleep
-from selenium.webdriver.chrome.service import Service as ChromeService
+from DriversClass import DriverClass
+from selenium.common.exceptions import WebDriverException
 
-driver_path = r'C:\Users\sawan\Desktop\infuse\Practice-Vineet\selenium-exercise\drivers\chromedriver-win64\chromedriver.exe'
-chrome_service = ChromeService(executable_path = driver_path)
-
-driver = Chrome(service=chrome_service);
-
-driver.maximize_window()
-sleep(2)
+try: 
+    driver = DriverClass("Chrome").initialize_driver()
+    driver.maximize_window()
+    print("Executed Successfully!")
+except WebDriverException as e:
+    print(f"Error occurred: {e}")
+finally:
+    driver.quit()
 driver.quit()
