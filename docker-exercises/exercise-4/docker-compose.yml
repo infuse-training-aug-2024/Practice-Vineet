@@ -1,0 +1,23 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"   # Port mapping: map container's port 3000 to host's port 3000
+    volumes:
+      - ./frontend:/app  # Volume mapping: sync frontend folder with /app in container
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Necessary for live reload on Docker
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"   # Port mapping: map container's port 5000 to host's port 5000
+    volumes:
+      - ./backend:/app  # Volume mapping: sync backend folder with /app in container
+    environment:
+      - PORT=5000
