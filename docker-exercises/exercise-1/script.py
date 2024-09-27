@@ -1,6 +1,9 @@
 """
 Commands used:
     pip install pyscreenshot
+
+    when running use -v flag.
+    docker run -v /path/to/host/output:/app/output
 """
 import os
 import sys 
@@ -8,31 +11,43 @@ import pyscreenshot
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+def put_watermark(draw, x, y, text, font):
+    draw.text((x, y), text, font=font)
+
+def set_up_text(draw, xy, text, font):
+     draw.text(xy, text, font=font)
+
+
 def image_draw():
     try:
         img = Image.open("transposed.jpg")
         width, height = img.size
         
         draw = ImageDraw.Draw(img)
-        
         text = "SCREENSHOT"
-        font = ImageFont.truetype('arial.ttf', 40)
+        
+        try:
+            font = ImageFont.truetype('arial.ttf', 40)
+        except IOError:
+            font = ImageFont.load_default()
+        
+        # Setting up text
+        set_up_text(draw, (10, 10), text, font)
 
-        draw.text((10, 10), text, font=font)
-
-        #calc of the coordinates 
+        # Calculate the coordinates for watermark
         x = 100
         y = 50
 
-        #put watermakr
-        draw.text((x, y), text, font=font)
-        img.show()
+        # Put watermark
+        put_watermark(draw, x, y, text, font)
 
-        img.save('watermarked.jpg')
+        
+        img.save('/app/output/watermarked.jpg')  
 
     except IOError as e:
-        print(e)
+        print(f"Error opening or processing the image: {e}")
         pass
+
 
 
 def image_transpose():

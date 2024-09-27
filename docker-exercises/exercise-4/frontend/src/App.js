@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+require('dotenv').config();
 
 function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     // Fetching data from the backend API
-    fetch('http://localhost:5000/api')
+    fetch(process.env.LOCAL_URL)
       .then(response => response.json())
       .then(data => setMessage(data.message))
       .catch(error => console.error('Error fetching data:', error));
