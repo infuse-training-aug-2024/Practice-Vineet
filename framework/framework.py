@@ -73,7 +73,8 @@ class Framework:
 
     def click_element(self, locator: dict):
         try:
-            element = self.wait.until(EC.element_to_be_clickable(self._get_by_type(locator)))
+            by, value = self._get_by_type(locator)
+            element = self.wait.until(EC.element_to_be_clickable((by, value)))
             element.click()
             return True
         except Exception as e:

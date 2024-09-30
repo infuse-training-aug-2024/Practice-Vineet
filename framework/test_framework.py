@@ -36,12 +36,12 @@ class TestFramework(unittest.TestCase):
         self.framework.open_url(self._LINK)
         locator = {"by": "id", "value": "invalid"}
         element = self.framework.find_elements(locator)
-        # self.assertIsNone(element,[])
+        # self.assertIsNone(element,[])0.
         self.assertFalse(element)
 
     def test_click_element_valid(self):
         self.framework.open_url(self._LINK)
-        locator = {"by": "css_selector", "value": "#menu-item-102 > a"}
+        locator = {"by": "id", "value": "menu-item-102"}
         success = self.framework.click_element(locator)
         self.assertTrue(success)
     
