@@ -17,7 +17,7 @@ def create_item(req: func.HttpRequest) -> func.HttpResponse:
  
         data = req.get_json()
        
-        table_service_client = TableServiceClient.from_connection_string(os.getenv("AzureWebJobsStorage"))
+        table_service_client = TableServiceClient.from_connection_string(os.getenv("CONN_STR"))
         table_client = table_service_client.get_table_client(table_name)
        
         table_client.create_entity(entity=data)
@@ -37,7 +37,7 @@ def read_item(req: func.HttpRequest) -> func.HttpResponse:
         partition_key = req.params.get('PartitionKey')
         row_key = req.params.get('RowKey')
  
-        table_service_client = TableServiceClient.from_connection_string(os.getenv("AzureWebJobsStorage"))
+        table_service_client = TableServiceClient.from_connection_string(os.getenv("CONN_STR"))
         table_client = table_service_client.get_table_client(table_name)
        
         entity = table_client.get_entity(partition_key, row_key)
@@ -58,7 +58,7 @@ def update_item(req: func.HttpRequest) -> func.HttpResponse:
         partition_key = data["PartitionKey"]
         row_key = data["RowKey"]
        
-        table_service_client = TableServiceClient.from_connection_string(os.getenv("AzureWebJobsStorage"))
+        table_service_client = TableServiceClient.from_connection_string(os.getenv("CONN_STR"))
         table_client = table_service_client.get_table_client(table_name)
        
         entity = table_client.get_entity(partition_key, row_key)
@@ -84,7 +84,7 @@ def delete_item(req: func.HttpRequest) -> func.HttpResponse:
         partition_key = req.params.get('PartitionKey')
         row_key = req.params.get('RowKey')
  
-        table_service_client = TableServiceClient.from_connection_string(os.getenv("AzureWebJobsStorage"))
+        table_service_client = TableServiceClient.from_connection_string(os.getenv("CONN_STR"))
         table_client = table_service_client.get_table_client(table_name)
        
         table_client.delete_entity(partition_key, row_key)
