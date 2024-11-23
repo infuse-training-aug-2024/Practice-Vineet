@@ -1,0 +1,42 @@
+<!--
+
+    - Policies are applied in the order they appear.
+
+    - Position <base/> inside a section to inherit policies from the outer scope.
+
+    - Comments within policies are not preserved.
+
+-->
+<!-- Add policies as children to the <inbound>, <outbound>, <backend>, and <on-error> elements -->
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" allow-private-response-caching="false" must-revalidate="false" downstream-caching-type="none" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+        <choose>
+            <when condition="@(context.Response.StatusCode == 200)">
+                <set-body>@{
+
+                    var responseBody = context.Response.Body.As<JObject>();
+
+                    responseBody["customMessage"] = "CUSTOM MESSAGE";
+
+                    return responseBody.ToString();
+
+                }</set-body>
+                <set-header name="X-Custom-Header" exists-action="override">
+                    <value>CUSTOM MESSAGE</value>
+                </set-header>
+            </when>
+        </choose>
+        <cache-store duration="3600" />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>
