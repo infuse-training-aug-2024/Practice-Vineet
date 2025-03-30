@@ -1,0 +1,3 @@
+[submodule "practice-webapp"]
+	path = practice-webapp
+	url = https://github.com/Vineet-Sawant/practice-webapp.git

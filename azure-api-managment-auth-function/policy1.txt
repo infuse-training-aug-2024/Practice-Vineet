@@ -1,0 +1,36 @@
+<!--
+    - Policies are applied in the order they appear.
+    - Position <base/> inside a section to inherit policies from the outer scope.
+    - Comments within policies are not preserved.
+-->
+<!-- Add policies as children to the <inbound>, <outbound>, <backend>, and <on-error> elements -->
+<policies>
+    <!-- Throttle, authorize, validate, cache, or transform the requests -->
+    <inbound>
+        <base />
+        <send-request mode="copy" response-variable-name="tokenstate" timeout="20" ignore-error="true">
+            <set-url>https://azureapimanagmentauthfunction2.azurewebsites.net/api/email_validation?</set-url>
+            <set-method>GET</set-method>
+        </send-request>
+        <choose>
+            <when condition="@((int)((IResponse)context.Variables["tokenstate"]).StatusCode == 200)" />
+            <otherwise>
+                <return-response>
+                    <set-status code="403" reason="Forbidden" />
+                </return-response>
+            </otherwise>
+        </choose>
+    </inbound>
+    <!-- Control if and how the requests are forwarded to services  -->
+    <backend>
+        <base />
+    </backend>
+    <!-- Customize the responses -->
+    <outbound>
+        <base />
+    </outbound>
+    <!-- Handle exceptions and customize error responses  -->
+    <on-error>
+        <base />
+    </on-error>
+</policies>
